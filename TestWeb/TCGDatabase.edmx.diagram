@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d47d3073d679454a9ae470fe78cf5c51" Name="Diagram1" ZoomLevel="89">
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_INS_BRG" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_MERK_BRG" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_SUPPLIER_BARANG" Width="1.5" PointX="0.75" PointY="11.375" />
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_TYPE_BRG" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_UKURAN" Width="1.5" PointX="5.375" PointY="0.875" />
+        <EntityTypeShape EntityType="TCGModel.TCG_D_BARANG_MASUK" Width="1.5" PointX="9.875" PointY="4.375" />
+        <EntityTypeShape EntityType="TCGModel.TCG_H_BARANG_MASUK" Width="1.5" PointX="7.625" PointY="11.75" />
+        <EntityTypeShape EntityType="TCGModel.TCG_MASTER_CABANG" Width="1.5" PointX="5.375" PointY="12" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_H_BARANG_MASUK" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_CABANG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_INS_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_MERK_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_SUPPLIER_BARANG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_TYPE_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_MASTER_UKURAN" />
+        <AssociationConnector Association="TCGModel.FK_TCG_H_BARANG_MASUK_TCG_H_BARANG_MASUK" />
+        <EntityTypeShape EntityType="TCGModel.TCG_DATA_BARANG" Width="1.5" PointX="7.625" PointY="4.375" />
+        <AssociationConnector Association="TCGModel.FK_TCG_D_BARANG_MASUK_TCG_DATA_BARANG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_DATA_BARANG_TCG_MASTER_INS_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_DATA_BARANG_TCG_MASTER_MERK_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_DATA_BARANG_TCG_MASTER_SUPPLIER_BARANG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_DATA_BARANG_TCG_MASTER_TYPE_BRG" />
+        <AssociationConnector Association="TCGModel.FK_TCG_DATA_BARANG_TCG_MASTER_UKURAN" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TCGModelStoreContainer" CdmEntityContainer="TCGEntities">
+    <EntitySetMapping Name="TCG_MASTER_INS_BRG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_INS_BRG">
+        <MappingFragment StoreEntitySet="TCG_MASTER_INS_BRG">
+          <ScalarProperty Name="KODE_JENIS" ColumnName="KODE_JENIS" />
+          <ScalarProperty Name="NAMA_JENIS_BARANG" ColumnName="NAMA_JENIS_BARANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_MASTER_MERK_BRG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_MERK_BRG">
+        <MappingFragment StoreEntitySet="TCG_MASTER_MERK_BRG">
+          <ScalarProperty Name="ALAMAT" ColumnName="ALAMAT" />
+          <ScalarProperty Name="TELEPON" ColumnName="TELEPON" />
+          <ScalarProperty Name="NAMA_DISTRIBUTOR" ColumnName="NAMA_DISTRIBUTOR" />
+          <ScalarProperty Name="KODE_MERK" ColumnName="KODE_MERK" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_MASTER_SUPPLIER_BARANG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_SUPPLIER_BARANG">
+        <MappingFragment StoreEntitySet="TCG_MASTER_SUPPLIER_BARANG">
+          <ScalarProperty Name="NAMA_SUPPLIER" ColumnName="NAMA_SUPPLIER" />
+          <ScalarProperty Name="KODE_SUPPLIER" ColumnName="KODE_SUPPLIER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_MASTER_TYPE_BRG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_TYPE_BRG">
+        <MappingFragment StoreEntitySet="TCG_MASTER_TYPE_BRG">
+          <ScalarProperty Name="NAMA_TYPE_BARANG" ColumnName="NAMA_TYPE_BARANG" />
+          <ScalarProperty Name="KODE_TYPE" ColumnName="KODE_TYPE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_MASTER_UKURAN">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_UKURAN">
+        <MappingFragment StoreEntitySet="TCG_MASTER_UKURAN">
+          <ScalarProperty Name="JUMLAH_M2_DUS" ColumnName="JUMLAH_M2_DUS" />
+          <ScalarProperty Name="JUMLAH_1_DUS" ColumnName="JUMLAH_1_DUS" />
+          <ScalarProperty Name="UKURAN" ColumnName="UKURAN" />
+          <ScalarProperty Name="KODE_UKURAN" ColumnName="KODE_UKURAN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_D_BARANG_MASUK">
+      <EntityTypeMapping TypeName="TCGModel.TCG_D_BARANG_MASUK">
+        <MappingFragment StoreEntitySet="TCG_D_BARANG_MASUK">
+          <ScalarProperty Name="KETERANGAN" ColumnName="KETERANGAN" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+          <ScalarProperty Name="JUMLAH_BARANG" ColumnName="JUMLAH_BARANG" />
+          <ScalarProperty Name="HARGA_BELI" ColumnName="HARGA_BELI" />
+          <ScalarProperty Name="KODE_CABANG" ColumnName="KODE_CABANG" />
+          <ScalarProperty Name="KODE_TYPE" ColumnName="KODE_TYPE" />
+          <ScalarProperty Name="KODE_UKURAN" ColumnName="KODE_UKURAN" />
+          <ScalarProperty Name="KODE_SUPPLIER" ColumnName="KODE_SUPPLIER" />
+          <ScalarProperty Name="KODE_MERK" ColumnName="KODE_MERK" />
+          <ScalarProperty Name="KODE_JENIS" ColumnName="KODE_JENIS" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KODE_BARANG" ColumnName="KODE_BARANG" />
+          <ScalarProperty Name="KD_TRANSAKSI" ColumnName="KD_TRANSAKSI" />
+          <ScalarProperty Name="PKID" ColumnName="PKID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_H_BARANG_MASUK">
+      <EntityTypeMapping TypeName="TCGModel.TCG_H_BARANG_MASUK">
+        <MappingFragment StoreEntitySet="TCG_H_BARANG_MASUK">
+          <ScalarProperty Name="JUMLAH_BARANG" ColumnName="JUMLAH_BARANG" />
+          <ScalarProperty Name="KETERANGAN" ColumnName="KETERANGAN" />
+          <ScalarProperty Name="KODE_SUPPLIER" ColumnName="KODE_SUPPLIER" />
+          <ScalarProperty Name="KODE_CABANG" ColumnName="KODE_CABANG" />
+          <ScalarProperty Name="TGL_TRANSAKSI" ColumnName="TGL_TRANSAKSI" />
+          <ScalarProperty Name="KD_TRANSAKSI" ColumnName="KD_TRANSAKSI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_MASTER_CABANG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_MASTER_CABANG">
+        <MappingFragment StoreEntitySet="TCG_MASTER_CABANG">
+          <ScalarProperty Name="TELEPON" ColumnName="TELEPON" />
+          <ScalarProperty Name="ALAMAT_CABANG" ColumnName="ALAMAT_CABANG" />
+          <ScalarProperty Name="NAMA_CABANG" ColumnName="NAMA_CABANG" />
+          <ScalarProperty Name="KODE_CABANG" ColumnName="KODE_CABANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TCG_DATA_BARANG">
+      <EntityTypeMapping TypeName="TCGModel.TCG_DATA_BARANG">
+        <MappingFragment StoreEntitySet="TCG_DATA_BARANG">
+          <ScalarProperty Name="KETERANGAN" ColumnName="KETERANGAN" />
+          <ScalarProperty Name="STOK_BARANG" ColumnName="STOK_BARANG" />
+          <ScalarProperty Name="HARGA_JUAL_TCG" ColumnName="HARGA_JUAL_TCG" />
+          <ScalarProperty Name="HARGA_JUAL_SUPPLIER" ColumnName="HARGA_JUAL_SUPPLIER" />
+          <ScalarProperty Name="HARGA_SUPPLIER" ColumnName="HARGA_SUPPLIER" />
+          <ScalarProperty Name="ITEM" ColumnName="ITEM" />
+          <ScalarProperty Name="SERI" ColumnName="SERI" />
+          <ScalarProperty Name="NAMA_BARANG" ColumnName="NAMA_BARANG" />
+          <ScalarProperty Name="KODE_TYPE" ColumnName="KODE_TYPE" />
+          <ScalarProperty Name="KODE_CABANG" ColumnName="KODE_CABANG" />
+          <ScalarProperty Name="KODE_UKURAN" ColumnName="KODE_UKURAN" />
+          <ScalarProperty Name="KODE_SUPPLIER" ColumnName="KODE_SUPPLIER" />
+          <ScalarProperty Name="KODE_MERK" ColumnName="KODE_MERK" />
+          <ScalarProperty Name="KODE_JENIS" ColumnName="KODE_JENIS" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="KD_BARANG" ColumnName="KD_BARANG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

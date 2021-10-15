@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TestMaster.master.cs" Inherits="TestWeb.TestMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>TCG</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
+    <!-- My CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            
+        }
+
+        .navbar{
+            background-color: #EAF7F7;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #EAF7F7;
+            overflow-x: hidden;
+            padding-top: 80px;
+        }
+
+            .sidenav a {
+                padding: 6px 8px 6px 16px;
+                text-decoration: none;
+                font-size: 20px;
+                color: #818181;
+                display: block;
+            }
+
+                .sidenav a:hover {
+                    color: #f1f1f1;
+                }
+
+        .main {
+            margin-left: 160px; /* Same as the width of the sidenav */
+            font-size: 14px; /* Increased text to enable scrolling */
+            padding: 0px 10px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+                .sidenav a {
+                    font-size: 18px;
+                }
+        }
+    </style>
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table>
+            <tr>
+                <td>
+                    <!-- Navbar -->
+                    <nav class="navbar navbar-expand-lg navbar-dark shadow fixed-top">
+                        <div class="container">
+                            <a class="navbar-brand" href="#">TCG</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <%--<div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="JenisBarang.aspx">Jenis Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="MerkBarang.aspx">Merk Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="SupplierBarang.aspx">Supplier Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="UkuranBarang.aspx">Ukuran Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="TypeBarang.aspx">Type Barang</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="DataBarang.aspx">Data Barang</a>
+                        </li>
+                    </ul>
+                </div>--%>
+                        </div>
+                    </nav>
+                    <!-- Akhir Navbar -->
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%-- sidebar --%>
+                    <div class="sidenav">
+                        <a href="JenisBarang.aspx">Jenis Barang</a>
+                        <a href="MerkBarang.aspx">Merk Barang</a>
+                        <a href="SupplierBarang.aspx">Supplier Barang</a>
+                        <a href="UkuranBarang.aspx">Ukuran Barang</a>
+                        <a href="TypeBarang.aspx">Type Barang</a>
+                        <a href="DataBarang.aspx">Data Barang</a>
+                        <a href="DataMasuk.aspx">Data Masuk</a>
+                    </div>
+                    <%-- akhir sidebar --%>
+                </td>
+            </tr>
+        </table>
+
+
+
+
+        <div class="main">
+
+            <asp:ContentPlaceHolder ID="ctContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+
+</body>
+</html>

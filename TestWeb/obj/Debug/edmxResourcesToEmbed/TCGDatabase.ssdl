@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TCGModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TCG_D_BARANG_MASUK">
+    <Key>
+      <PropertyRef Name="PKID" />
+    </Key>
+    <Property Name="PKID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KD_TRANSAKSI" Type="varchar" MaxLength="50" />
+    <Property Name="KODE_BARANG" Type="char" MaxLength="50" />
+    <Property Name="ID" Type="int" />
+    <Property Name="KODE_JENIS" Type="char" MaxLength="2" />
+    <Property Name="KODE_MERK" Type="char" MaxLength="3" />
+    <Property Name="KODE_SUPPLIER" Type="char" MaxLength="5" />
+    <Property Name="KODE_UKURAN" Type="char" MaxLength="6" />
+    <Property Name="KODE_TYPE" Type="char" MaxLength="5" />
+    <Property Name="KODE_CABANG" Type="char" MaxLength="5" />
+    <Property Name="HARGA_BELI" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="JUMLAH_BARANG" Type="int" />
+    <Property Name="STATUS" Type="varchar" MaxLength="50" />
+    <Property Name="KETERANGAN" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TCG_DATA_BARANG">
+    <Key>
+      <PropertyRef Name="KD_BARANG" />
+    </Key>
+    <Property Name="KD_BARANG" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" />
+    <Property Name="KODE_JENIS" Type="char" MaxLength="2" />
+    <Property Name="KODE_MERK" Type="char" MaxLength="3" />
+    <Property Name="KODE_SUPPLIER" Type="char" MaxLength="5" />
+    <Property Name="KODE_UKURAN" Type="char" MaxLength="6" />
+    <Property Name="KODE_CABANG" Type="char" MaxLength="5" />
+    <Property Name="KODE_TYPE" Type="char" MaxLength="5" />
+    <Property Name="NAMA_BARANG" Type="varchar" MaxLength="200" />
+    <Property Name="SERI" Type="varchar" MaxLength="50" />
+    <Property Name="ITEM" Type="varchar" MaxLength="100" />
+    <Property Name="HARGA_SUPPLIER" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HARGA_JUAL_SUPPLIER" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="HARGA_JUAL_TCG" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="STOK_BARANG" Type="int" />
+    <Property Name="KETERANGAN" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TCG_H_BARANG_MASUK">
+    <Key>
+      <PropertyRef Name="KD_TRANSAKSI" />
+    </Key>
+    <Property Name="KD_TRANSAKSI" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TGL_TRANSAKSI" Type="datetime" />
+    <Property Name="KODE_CABANG" Type="char" MaxLength="5" />
+    <Property Name="KODE_SUPPLIER" Type="char" MaxLength="5" />
+    <Property Name="KETERANGAN" Type="varchar" MaxLength="100" />
+    <Property Name="JUMLAH_BARANG" Type="int" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_CABANG">
+    <Key>
+      <PropertyRef Name="KODE_CABANG" />
+    </Key>
+    <Property Name="KODE_CABANG" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="NAMA_CABANG" Type="varchar" MaxLength="5" />
+    <Property Name="ALAMAT_CABANG" Type="varchar" MaxLength="200" />
+    <Property Name="TELEPON" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_INS_BRG">
+    <Key>
+      <PropertyRef Name="KODE_JENIS" />
+    </Key>
+    <Property Name="KODE_JENIS" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="NAMA_JENIS_BARANG" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_MERK_BRG">
+    <Key>
+      <PropertyRef Name="KODE_MERK" />
+    </Key>
+    <Property Name="KODE_MERK" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="NAMA_DISTRIBUTOR" Type="varchar" MaxLength="100" />
+    <Property Name="TELEPON" Type="varchar" MaxLength="1000" />
+    <Property Name="ALAMAT" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_SUPPLIER_BARANG">
+    <Key>
+      <PropertyRef Name="KODE_SUPPLIER" />
+    </Key>
+    <Property Name="KODE_SUPPLIER" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="NAMA_SUPPLIER" Type="varchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_TYPE_BRG">
+    <Key>
+      <PropertyRef Name="KODE_TYPE" />
+    </Key>
+    <Property Name="KODE_TYPE" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="NAMA_TYPE_BARANG" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TCG_MASTER_UKURAN">
+    <Key>
+      <PropertyRef Name="KODE_UKURAN" />
+    </Key>
+    <Property Name="KODE_UKURAN" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="UKURAN" Type="varchar" MaxLength="8" />
+    <Property Name="JUMLAH_1_DUS" Type="int" />
+    <Property Name="JUMLAH_M2_DUS" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_DATA_BARANG">
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KD_BARANG" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_BARANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_H_BARANG_MASUK">
+    <End Role="TCG_H_BARANG_MASUK" Type="Self.TCG_H_BARANG_MASUK" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_H_BARANG_MASUK">
+        <PropertyRef Name="KD_TRANSAKSI" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KD_TRANSAKSI" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_CABANG">
+    <End Role="TCG_MASTER_CABANG" Type="Self.TCG_MASTER_CABANG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_CABANG">
+        <PropertyRef Name="KODE_CABANG" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_CABANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_INS_BRG">
+    <End Role="TCG_MASTER_INS_BRG" Type="Self.TCG_MASTER_INS_BRG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_INS_BRG">
+        <PropertyRef Name="KODE_JENIS" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_JENIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_MERK_BRG">
+    <End Role="TCG_MASTER_MERK_BRG" Type="Self.TCG_MASTER_MERK_BRG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_MERK_BRG">
+        <PropertyRef Name="KODE_MERK" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_MERK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_SUPPLIER_BARANG">
+    <End Role="TCG_MASTER_SUPPLIER_BARANG" Type="Self.TCG_MASTER_SUPPLIER_BARANG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_SUPPLIER_BARANG">
+        <PropertyRef Name="KODE_SUPPLIER" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_SUPPLIER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_TYPE_BRG">
+    <End Role="TCG_MASTER_TYPE_BRG" Type="Self.TCG_MASTER_TYPE_BRG" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_TYPE_BRG">
+        <PropertyRef Name="KODE_TYPE" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_UKURAN">
+    <End Role="TCG_MASTER_UKURAN" Type="Self.TCG_MASTER_UKURAN" Multiplicity="0..1" />
+    <End Role="TCG_D_BARANG_MASUK" Type="Self.TCG_D_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_UKURAN">
+        <PropertyRef Name="KODE_UKURAN" />
+      </Principal>
+      <Dependent Role="TCG_D_BARANG_MASUK">
+        <PropertyRef Name="KODE_UKURAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_DATA_BARANG_TCG_MASTER_INS_BRG">
+    <End Role="TCG_MASTER_INS_BRG" Type="Self.TCG_MASTER_INS_BRG" Multiplicity="0..1" />
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_INS_BRG">
+        <PropertyRef Name="KODE_JENIS" />
+      </Principal>
+      <Dependent Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KODE_JENIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_DATA_BARANG_TCG_MASTER_MERK_BRG">
+    <End Role="TCG_MASTER_MERK_BRG" Type="Self.TCG_MASTER_MERK_BRG" Multiplicity="0..1" />
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_MERK_BRG">
+        <PropertyRef Name="KODE_MERK" />
+      </Principal>
+      <Dependent Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KODE_MERK" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_DATA_BARANG_TCG_MASTER_SUPPLIER_BARANG">
+    <End Role="TCG_MASTER_SUPPLIER_BARANG" Type="Self.TCG_MASTER_SUPPLIER_BARANG" Multiplicity="0..1" />
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_SUPPLIER_BARANG">
+        <PropertyRef Name="KODE_SUPPLIER" />
+      </Principal>
+      <Dependent Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KODE_SUPPLIER" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_DATA_BARANG_TCG_MASTER_TYPE_BRG">
+    <End Role="TCG_MASTER_TYPE_BRG" Type="Self.TCG_MASTER_TYPE_BRG" Multiplicity="0..1" />
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_TYPE_BRG">
+        <PropertyRef Name="KODE_TYPE" />
+      </Principal>
+      <Dependent Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KODE_TYPE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_DATA_BARANG_TCG_MASTER_UKURAN">
+    <End Role="TCG_MASTER_UKURAN" Type="Self.TCG_MASTER_UKURAN" Multiplicity="0..1" />
+    <End Role="TCG_DATA_BARANG" Type="Self.TCG_DATA_BARANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_UKURAN">
+        <PropertyRef Name="KODE_UKURAN" />
+      </Principal>
+      <Dependent Role="TCG_DATA_BARANG">
+        <PropertyRef Name="KODE_UKURAN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TCG_H_BARANG_MASUK_TCG_H_BARANG_MASUK">
+    <End Role="TCG_MASTER_CABANG" Type="Self.TCG_MASTER_CABANG" Multiplicity="0..1" />
+    <End Role="TCG_H_BARANG_MASUK" Type="Self.TCG_H_BARANG_MASUK" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TCG_MASTER_CABANG">
+        <PropertyRef Name="KODE_CABANG" />
+      </Principal>
+      <Dependent Role="TCG_H_BARANG_MASUK">
+        <PropertyRef Name="KODE_CABANG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TCGModelStoreContainer">
+    <EntitySet Name="TCG_D_BARANG_MASUK" EntityType="Self.TCG_D_BARANG_MASUK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_DATA_BARANG" EntityType="Self.TCG_DATA_BARANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_H_BARANG_MASUK" EntityType="Self.TCG_H_BARANG_MASUK" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_CABANG" EntityType="Self.TCG_MASTER_CABANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_INS_BRG" EntityType="Self.TCG_MASTER_INS_BRG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_MERK_BRG" EntityType="Self.TCG_MASTER_MERK_BRG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_SUPPLIER_BARANG" EntityType="Self.TCG_MASTER_SUPPLIER_BARANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_TYPE_BRG" EntityType="Self.TCG_MASTER_TYPE_BRG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TCG_MASTER_UKURAN" EntityType="Self.TCG_MASTER_UKURAN" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_DATA_BARANG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_DATA_BARANG">
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_H_BARANG_MASUK" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_H_BARANG_MASUK">
+      <End Role="TCG_H_BARANG_MASUK" EntitySet="TCG_H_BARANG_MASUK" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_CABANG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_CABANG">
+      <End Role="TCG_MASTER_CABANG" EntitySet="TCG_MASTER_CABANG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_INS_BRG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_INS_BRG">
+      <End Role="TCG_MASTER_INS_BRG" EntitySet="TCG_MASTER_INS_BRG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_MERK_BRG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_MERK_BRG">
+      <End Role="TCG_MASTER_MERK_BRG" EntitySet="TCG_MASTER_MERK_BRG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_SUPPLIER_BARANG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_SUPPLIER_BARANG">
+      <End Role="TCG_MASTER_SUPPLIER_BARANG" EntitySet="TCG_MASTER_SUPPLIER_BARANG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_TYPE_BRG" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_TYPE_BRG">
+      <End Role="TCG_MASTER_TYPE_BRG" EntitySet="TCG_MASTER_TYPE_BRG" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_D_BARANG_MASUK_TCG_MASTER_UKURAN" Association="Self.FK_TCG_D_BARANG_MASUK_TCG_MASTER_UKURAN">
+      <End Role="TCG_MASTER_UKURAN" EntitySet="TCG_MASTER_UKURAN" />
+      <End Role="TCG_D_BARANG_MASUK" EntitySet="TCG_D_BARANG_MASUK" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_DATA_BARANG_TCG_MASTER_INS_BRG" Association="Self.FK_TCG_DATA_BARANG_TCG_MASTER_INS_BRG">
+      <End Role="TCG_MASTER_INS_BRG" EntitySet="TCG_MASTER_INS_BRG" />
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_DATA_BARANG_TCG_MASTER_MERK_BRG" Association="Self.FK_TCG_DATA_BARANG_TCG_MASTER_MERK_BRG">
+      <End Role="TCG_MASTER_MERK_BRG" EntitySet="TCG_MASTER_MERK_BRG" />
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_DATA_BARANG_TCG_MASTER_SUPPLIER_BARANG" Association="Self.FK_TCG_DATA_BARANG_TCG_MASTER_SUPPLIER_BARANG">
+      <End Role="TCG_MASTER_SUPPLIER_BARANG" EntitySet="TCG_MASTER_SUPPLIER_BARANG" />
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_DATA_BARANG_TCG_MASTER_TYPE_BRG" Association="Self.FK_TCG_DATA_BARANG_TCG_MASTER_TYPE_BRG">
+      <End Role="TCG_MASTER_TYPE_BRG" EntitySet="TCG_MASTER_TYPE_BRG" />
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_DATA_BARANG_TCG_MASTER_UKURAN" Association="Self.FK_TCG_DATA_BARANG_TCG_MASTER_UKURAN">
+      <End Role="TCG_MASTER_UKURAN" EntitySet="TCG_MASTER_UKURAN" />
+      <End Role="TCG_DATA_BARANG" EntitySet="TCG_DATA_BARANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TCG_H_BARANG_MASUK_TCG_H_BARANG_MASUK" Association="Self.FK_TCG_H_BARANG_MASUK_TCG_H_BARANG_MASUK">
+      <End Role="TCG_MASTER_CABANG" EntitySet="TCG_MASTER_CABANG" />
+      <End Role="TCG_H_BARANG_MASUK" EntitySet="TCG_H_BARANG_MASUK" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
